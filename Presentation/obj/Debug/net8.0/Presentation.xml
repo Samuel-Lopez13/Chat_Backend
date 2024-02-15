@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Presentation</name>
+    </assembly>
+    <members>
+        <member name="M:Presentation.Controllers.ChatController.Login(Core.Features.Usuarios.Command.Login)">
+            <summary>
+            Inicio de sesion
+            </summary>
+            <remarks>
+            <b>JSON:</b> Devuelve el token de acceso
+            <br/><br/>
+            <b>400:</b> Si el usuario no se encuentra registrado
+            </remarks>
+        </member>
+    </members>
+</doc>
