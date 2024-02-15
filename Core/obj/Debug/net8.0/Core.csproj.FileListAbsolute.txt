@@ -14,3 +14,4 @@ D:\Desarrollo\Chat Back\Chat\Core\obj\Debug\net8.0\Core.genruntimeconfig.cache
 D:\Desarrollo\Chat Back\Chat\Core\obj\Debug\net8.0\ref\Core.dll
 D:\Desarrollo\Chat Back\Chat\Core\bin\Debug\net8.0\Core.xml
 D:\Desarrollo\Chat Back\Chat\Core\obj\Debug\net8.0\Core.xml
+D:\Desarrollo\Chat Back\Chat\Core\obj\Debug\net8.0\Core.sourcelink.json

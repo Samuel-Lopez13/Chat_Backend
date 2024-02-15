@@ -76,3 +76,4 @@ D:\Desarrollo\Chat Back\Chat\Presentation\bin\Debug\net8.0\Core.pdb
 D:\Desarrollo\Chat Back\Chat\Presentation\bin\Debug\net8.0\Presentation.xml
 D:\Desarrollo\Chat Back\Chat\Presentation\bin\Debug\net8.0\Core.xml
 D:\Desarrollo\Chat Back\Chat\Presentation\obj\Debug\net8.0\Presentation.xml
+D:\Desarrollo\Chat Back\Chat\Presentation\obj\Debug\net8.0\Presentation.sourcelink.json

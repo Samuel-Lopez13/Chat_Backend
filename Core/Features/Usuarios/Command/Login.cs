@@ -7,7 +7,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace Core.Features.Usuarios.Command;
 
-public class Login : IRequest<LoginResponse>
+public record Login : IRequest<LoginResponse>
 {
     /// <example>
     /// samuelopez
@@ -22,12 +22,10 @@ public class Login : IRequest<LoginResponse>
 public class LoginCommandHandler : IRequestHandler<Login, LoginResponse>
 {
     private readonly IAuthService _authService;
-    private readonly ChatContext _context;
     
-    public LoginCommandHandler(IAuthService authService, ChatContext context)
+    public LoginCommandHandler(IAuthService authService)
     {
         _authService = authService;
-        _context = context;
     }
     
     public async Task<LoginResponse> Handle(Login request, CancellationToken cancellationToken)
@@ -53,5 +51,4 @@ public class LoginCommandHandler : IRequestHandler<Login, LoginResponse>
 public record LoginResponse
 {
     public string Token { get; set; }
-    
 }

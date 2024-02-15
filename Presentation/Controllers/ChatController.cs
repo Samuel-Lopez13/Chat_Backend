@@ -1,4 +1,5 @@
-﻿using Core.Features.Usuarios.Command;
+﻿using Core.Features.Grupos.Queries;
+using Core.Features.Usuarios.Command;
 using MediatR;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Authorization;
@@ -33,6 +34,13 @@ public class ChatController : ControllerBase
     public async Task<LoginResponse> Login([FromBody] Login command)
     {
         return await _mediator.Send(command);
+    }
+
+    [AllowAnonymous]
+    [HttpGet]
+    public async Task<List<GetGroupsResponse>> GruposListas()
+    {
+        return await _mediator.Send(new GetGroups());
     }
     
     /*[HttpGet]
