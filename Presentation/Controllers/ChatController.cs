@@ -42,11 +42,4 @@ public class ChatController : ControllerBase
     {
         return await _mediator.Send(new GetGroups());
     }
-    
-    /*[HttpGet]
-    public async Task<IActionResult> Send(string message, string groupName)
-    {
-        await _hubContext.Clients.Group(groupName).SendAsync("sendMessage", message);
-        return Ok();
-    }*/
 }
