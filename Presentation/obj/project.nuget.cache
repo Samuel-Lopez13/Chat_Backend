@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "IKG7pZ70M3rEhli2s8eas+FZ2IoF5lp9GG1bnX0yzc7dNb9kDbQvvcu9xwHFvQpjsCYtCEnsKbQae8fXZw4xUQ==",
+  "dgSpecHash": "8QNqRzhRCUKTC9wImq2nZyLkflOJz0cZERK9NXO6a/qC7fto8CJRavDgG5ges4uE6vSCAkvte0MCMhJT8rkSbA==",
   "success": true,
   "projectFilePath": "D:\\Desarrollo\\Chat Back\\Chat\\Presentation\\Presentation.csproj",
   "expectedPackageFiles": [
@@ -40,6 +40,7 @@
     "C:\\Users\\lopez\\.nuget\\packages\\microsoft.netcore.platforms\\3.1.0\\microsoft.netcore.platforms.3.1.0.nupkg.sha512",
     "C:\\Users\\lopez\\.nuget\\packages\\microsoft.netcore.targets\\1.1.0\\microsoft.netcore.targets.1.1.0.nupkg.sha512",
     "C:\\Users\\lopez\\.nuget\\packages\\microsoft.openapi\\1.4.3\\microsoft.openapi.1.4.3.nupkg.sha512",
+    "C:\\Users\\lopez\\.nuget\\packages\\microsoft.visualstudio.azure.containers.tools.targets\\1.19.5\\microsoft.visualstudio.azure.containers.tools.targets.1.19.5.nupkg.sha512",
     "C:\\Users\\lopez\\.nuget\\packages\\microsoft.win32.systemevents\\4.7.0\\microsoft.win32.systemevents.4.7.0.nupkg.sha512",
     "C:\\Users\\lopez\\.nuget\\packages\\mysql.data\\8.3.0\\mysql.data.8.3.0.nupkg.sha512",
     "C:\\Users\\lopez\\.nuget\\packages\\mysql.entityframeworkcore\\6.0.21\\mysql.entityframeworkcore.6.0.21.nupkg.sha512",
