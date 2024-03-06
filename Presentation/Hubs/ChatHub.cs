@@ -6,7 +6,7 @@ using Presentation.Modelos;
 
 namespace Presentation.Hubs;
 
-[EnableCors("AllowOrigin")]
+//[EnableCors("AllowOrigin")]
 public class ChatHub : Hub
 {
     private readonly IConvertToBase64 _base64;

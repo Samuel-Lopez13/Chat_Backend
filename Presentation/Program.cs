@@ -53,17 +53,18 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI();
 }
 
-app.UseHttpsRedirection();
-app.UseRouting(); 
-app.UseAuthorization();
-//app.UseCors("SignalRPolicy");
-app.UseCors("AllowOrigin");
-//app.UseCors(x => x.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader());
-
 app.UseEndpoints(endpoints =>
 {
-    endpoints.MapHub<ChatHub>("/message").RequireCors("AllowOrigin");
+    endpoints.MapHub<ChatHub>("/message");
     endpoints.MapControllers();
 });
+
+app.UseHttpsRedirection();
+app.UseRouting(); 
+app.UseCors("AllowOrigin");
+app.UseAuthorization();
+//app.UseCors("SignalRPolicy");
+
+//app.UseCors(x => x.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader());
 
 app.Run();
