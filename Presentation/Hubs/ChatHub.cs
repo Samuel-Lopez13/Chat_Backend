@@ -1,10 +1,12 @@
 ﻿using Core.Domain.Services;
+using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.SignalR;
 using Presentation.Modelos;
 
 namespace Presentation.Hubs;
 
+[EnableCors("AllowOrigin")]
 public class ChatHub : Hub
 {
     private readonly IConvertToBase64 _base64;

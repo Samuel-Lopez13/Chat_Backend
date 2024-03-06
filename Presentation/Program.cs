@@ -19,15 +19,24 @@ builder.Services.AddScoped<IAuthService, AuthService>();
 builder.Services.AddPresentationServices(builder.Configuration);
 builder.Services.AddSecurity(builder.Configuration);
 
-builder.Services.AddCors(options =>
+/*builder.Services.AddCors(options =>
 {
     options.AddPolicy("SignalRPolicy", builder =>
     {
-        builder.WithOrigins("http://localhost:5173") // Reemplaza con el origen de tu aplicación Vue.js
+        builder.WithOrigins("https://chatearapp.netlify.app/") // Reemplaza con el origen de tu aplicación Vue.js
             .AllowAnyHeader()
             .AllowAnyMethod()
             .AllowCredentials(); // Permitir credenciales
     });
+});*/
+
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy("AllowOrigin",
+        builder => builder.WithOrigins("https://chatearapp.netlify.app")
+            .AllowAnyHeader()
+            .AllowAnyMethod()
+            .AllowCredentials());
 });
 
 //Database
@@ -47,11 +56,13 @@ if (app.Environment.IsDevelopment())
 app.UseHttpsRedirection();
 app.UseRouting(); 
 app.UseAuthorization();
-app.UseCors("SignalRPolicy");
+//app.UseCors("SignalRPolicy");
+app.UseCors("AllowOrigin");
+//app.UseCors(x => x.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader());
 
 app.UseEndpoints(endpoints =>
 {
-    endpoints.MapHub<ChatHub>("/message").RequireCors("SignalRPolicy");
+    endpoints.MapHub<ChatHub>("/message").RequireCors("AllowOrigin");
     endpoints.MapControllers();
 });
 
