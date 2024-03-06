@@ -43,7 +43,7 @@ builder.Services.AddCors(options =>
 {
     options.AddPolicy(name: "Cors", builder =>
     {
-        builder.WithOrigins("http://localhost:5145", "https://chatearapp.netlify.app");
+        builder.WithOrigins("https://chat-backend-fmhd.onrender.com", "https://chatearapp.netlify.app");
         builder.AllowCredentials();
         builder.AllowAnyMethod();
         builder.AllowAnyHeader();
