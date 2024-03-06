@@ -86,9 +86,4 @@ app.MapControllers();
     endpoints.MapControllers();
 });*/
 
-app.UseEndpoints(endpoints => {
-    app.MapHub<ChatHub>("/message").RequireCors("Cors");
-    app.MapControllers();
-});
-
 app.Run();
