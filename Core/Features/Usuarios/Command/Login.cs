@@ -32,7 +32,7 @@ public class LoginCommandHandler : IRequestHandler<Login, LoginResponse>
     {
         //Valida que no esten vacias
         if(string.IsNullOrEmpty(request.UserName) || string.IsNullOrEmpty(request.Contrasena))
-            throw new BadRequestException("Usuario y contraseña son obligatorios");
+            throw new BadRequestException("Usuario| y contraseña son obligatorios");
         
         //Si cumple con las validaciones se procede a autenticar
         var token = await _authService.AuthenticateAsync(request.UserName, request.Contrasena);

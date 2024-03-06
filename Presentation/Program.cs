@@ -43,10 +43,10 @@ builder.Services.AddCors(options =>
 {
     options.AddPolicy(name: "Cors", builder =>
     {
-        builder.WithOrigins("https://chat-backend-fmhd.onrender.com", "https://chatearapp.netlify.app");
-        builder.AllowAnyHeader();
-        builder.AllowAnyMethod();
+        builder.WithOrigins("http://localhost:5145", "https://chatearapp.netlify.app");
         builder.AllowCredentials();
+        builder.AllowAnyMethod();
+        builder.AllowAnyHeader();
     });
 });
 
@@ -70,7 +70,7 @@ app.UseHttpsRedirection();
 app.UseAuthentication();
 app.UseAuthorization();
 
-app.MapHub<ChatHub>("/message");
+app.MapHub<ChatHub>("/message").RequireCors("Cors");
 
 app.MapControllers();
 
