@@ -24,19 +24,17 @@ const string connectionName = "ConexionMaestra";
 var connectionString = builder.Configuration.GetConnectionString(connectionName);
 builder.Services.AddDbContext<ChatContext>(options => options.UseMySQL(connectionString));
 
-builder.Services.AddCors();
-
 //Corss
-/*builder.Services.AddCors(options =>
+builder.Services.AddCors(options =>
 {
     options.AddPolicy(name: "Cors", builder =>
     {
-        builder.WithOrigins("http://localhost:5145", "https://chatearapp.netlify.app");
+        builder.WithOrigins("http://localhost:5145", "http://localhost:5173");
         builder.AllowAnyHeader();
         builder.AllowAnyMethod();
         builder.AllowCredentials();
     });
-});*/
+});
 
 var app = builder.Build();
 
@@ -47,12 +45,7 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI();
 }
 
-app.UseCors(x => x
-    .AllowAnyMethod()
-    .AllowAnyHeader()
-    .AllowCredentials()
-    //.WithOrigins("https://localhost:44351")); // Allow only this origin can also have multiple origins seperated with comma
-    .SetIsOriginAllowed(origin => true));// Allow any origin  
+app.UseCors("Cors"); 
 
 app.UseHttpsRedirection();
 app.UseAuthentication();
