@@ -30,10 +30,10 @@ builder.Services.AddCors(options =>
     options.AddPolicy(name: "Cors", builder =>
     {
         builder.WithOrigins("https://chat-backend-fmhd.onrender.com", "https://chatearapp.netlify.app");
-        builder.AllowCredentials();
-        builder.AllowAnyMethod();
         builder.AllowAnyHeader();
-        builder.WithExposedHeaders("Access-Control-Allow-Origin");
+        builder.AllowAnyMethod();
+        builder.AllowCredentials();
+        //builder.WithExposedHeaders("Access-Control-Allow-Origin");
     });
 });
 
