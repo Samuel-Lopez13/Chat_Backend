@@ -33,6 +33,7 @@ builder.Services.AddCors(options =>
         builder.AllowCredentials();
         builder.AllowAnyMethod();
         builder.AllowAnyHeader();
+        builder.WithExposedHeaders("Access-Control-Allow-Origin");
     });
 });
 
