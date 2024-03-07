@@ -29,7 +29,7 @@ builder.Services.AddCors(options =>
 {
     options.AddPolicy(name: "Cors", builder =>
     {
-        builder.WithOrigins("http://localhost:5145", "http://localhost:5173");
+        builder.WithOrigins("http://localhost:5145", "https://chatearapp.netlify.app/");
         builder.AllowAnyHeader();
         builder.AllowAnyMethod();
         builder.AllowCredentials();
