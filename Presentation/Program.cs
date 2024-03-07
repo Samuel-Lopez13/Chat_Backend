@@ -25,25 +25,15 @@ var connectionString = builder.Configuration.GetConnectionString(connectionName)
 builder.Services.AddDbContext<ChatContext>(options => options.UseMySQL(connectionString));
 
 //Corss
-/*builder.Services.AddCors(options =>
+builder.Services.AddCors(options =>
 {
     options.AddPolicy(name: "Cors", builder =>
     {
-        builder.WithOrigins("https://chat-backend-fmhd.onrender.com", "https://chatearapp.netlify.app");
+        builder.WithOrigins("http://localhost:5145", "https://chatearapp.netlify.app");
         builder.AllowAnyHeader();
         builder.AllowAnyMethod();
         builder.AllowCredentials();
-        builder.WithExposedHeaders("Access-Control-Allow-Origin");
     });
-});*/
-
-builder.Services.AddCors(options =>
-{
-    options.AddPolicy("CorsPolicy",
-        builder => builder.WithOrigins("https://chat-backend-fmhd.onrender.com", "https://chatearapp.netlify.app")
-            .AllowAnyMethod()
-            .AllowAnyHeader()
-            .AllowCredentials());
 });
 
 var app = builder.Build();
@@ -55,13 +45,13 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI();
 }
 
-app.UseCors("CorsPolicy");
+app.UseCors("Cors");
 
 app.UseHttpsRedirection();
 app.UseAuthentication();
 app.UseAuthorization();
 
-app.MapHub<ChatHub>("/message").RequireCors("CorsPolicy");
+app.MapHub<ChatHub>("/message");
 
 app.MapControllers();
 

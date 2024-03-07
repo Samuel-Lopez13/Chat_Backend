@@ -10,13 +10,6 @@ namespace Presentation.Hubs;
 public class ChatHub : Hub
 {
     private readonly IConvertToBase64 _base64;
-
-    public override Task OnConnectedAsync()
-    {
-        // Configura CORS aquí si es necesario
-        Context.GetHttpContext().Response.Headers.Add("Access-Control-Allow-Origin", "https://chatearapp.netlify.app");
-        return base.OnConnectedAsync();
-    }
     
     public ChatHub(IConvertToBase64 base64)
     {
