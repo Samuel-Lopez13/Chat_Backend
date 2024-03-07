@@ -52,7 +52,7 @@ app.UseHttpsRedirection();
 app.UseAuthentication();
 app.UseAuthorization();
 
-app.MapHub<ChatHub>("/message");
+app.MapHub<ChatHub>("/message").RequireCors("Cors");
 
 app.MapControllers();
 
