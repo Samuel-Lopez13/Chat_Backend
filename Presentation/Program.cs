@@ -19,26 +19,12 @@ builder.Services.AddScoped<IAuthService, AuthService>();
 builder.Services.AddPresentationServices(builder.Configuration);
 builder.Services.AddSecurity(builder.Configuration);
 
-/*builder.Services.AddCors(options =>
-{
-    options.AddPolicy("SignalRPolicy", builder =>
-    {
-        builder.WithOrigins("https://chatearapp.netlify.app/") // Reemplaza con el origen de tu aplicación Vue.js
-            .AllowAnyHeader()
-            .AllowAnyMethod()
-            .AllowCredentials(); // Permitir credenciales
-    });
-});*/
+//Database
+const string connectionName = "ConexionMaestra";
+var connectionString = builder.Configuration.GetConnectionString(connectionName);
+builder.Services.AddDbContext<ChatContext>(options => options.UseMySQL(connectionString));
 
-/*builder.Services.AddCors(options =>
-{
-    options.AddPolicy("AllowOrigin",
-        builder => builder.WithOrigins("https://chatearapp.netlify.app")
-            .AllowAnyHeader()
-            .AllowAnyMethod()
-            .AllowCredentials());
-});*/
-
+//Corss
 builder.Services.AddCors(options =>
 {
     options.AddPolicy(name: "Cors", builder =>
@@ -50,11 +36,6 @@ builder.Services.AddCors(options =>
     });
 });
 
-//Database
-const string connectionName = "ConexionMaestra";
-var connectionString = builder.Configuration.GetConnectionString(connectionName);
-builder.Services.AddDbContext<ChatContext>(options => options.UseMySQL(connectionString));
-
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
@@ -64,26 +45,14 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI();
 }
 
-app.UseCors();
+app.UseCors("Cors");
 
 app.UseHttpsRedirection();
 app.UseAuthentication();
 app.UseAuthorization();
 
-app.MapHub<ChatHub>("/message").RequireCors("Cors");
+app.MapHub<ChatHub>("/message");
 
 app.MapControllers();
-
-//app.UseCors(x => x.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader());
-
-//app.UseCors("SignalRPolicy");
-
-//app.UseCors(x => x.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader());
-
-/*app.UseEndpoints(endpoints =>
-{
-    endpoints.MapHub<ChatHub>("/message").RequireCors("SignalRPolicy");
-    endpoints.MapControllers();
-});*/
 
 app.Run();
